@@ -2,7 +2,7 @@ import React from "react";
 import CurveLine from "../Cases/Canvas/CurveLine";
 import BezierCanvas from "../Cases/Canvas/BezierCanvas";
 import Layout1 from "components/Dashboard-1/Layout1";
-import DraggableCards from "./DraggableCards";
+// import DraggableCards from "./DraggableCards";
 import MultiArrowFromTwoPoints from "./MultiArrowFromTwoPoints";
 
 
