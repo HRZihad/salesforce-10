@@ -13,6 +13,7 @@ import AddIcon from "@mui/icons-material/Add";
 import CalendarTodayIcon from "@mui/icons-material/CalendarToday";
 
 import DoneAllIcon from "@mui/icons-material/DoneAll";
+import DndNewTaskCard from "./DndNewTaskCard";
 
 const DraggableParentWithFixedChildren = () => {
   const theme = useTheme();
@@ -56,7 +57,7 @@ const DraggableParentWithFixedChildren = () => {
           position={outsideParentPosition}
           onDrag={handleOutsideParentDrag}
           className="flex flex-col h-full"
-          bounds={{ left: 0, right: 400, top: 0, bottom: 0 }}
+          bounds={{ left: -20, right: 200, top: 0, bottom: 0 }}
         >
           <Box style={outsideParentStyle}>
             <Box className="flex flex-col h-full">
@@ -174,7 +175,7 @@ const DraggableParentWithFixedChildren = () => {
         <Draggable
           position={parentPosition}
           onDrag={handleParentDrag}
-          bounds={{ left: 0, right: 400, top: 0, bottom: 0 }}
+          bounds={{ left: -200, right: 200, top: 0, bottom: 0 }}
           className="flex flex-col h-full"
         >
           <Box style={parentStyle}>
@@ -461,7 +462,7 @@ const DraggableParentWithFixedChildren = () => {
           position={parentPosition3}
           onDrag={handleParentDrag3}
           className="flex flex-col h-full"
-          bounds={{ left: 0, right: 400, top: 0, bottom: 0 }}
+          bounds={{ left: -200, right: 200, top: 0, bottom: 0 }}
         >
           {/* box 3 */}
           <Box className="flex flex-col h-full cursor-move">
@@ -602,70 +603,16 @@ const DraggableParentWithFixedChildren = () => {
           position={outsideParentPosition4}
           onDrag={handleOutsideParentDrag4}
           className="flex flex-col h-full"
-          bounds={{ left: 0, right: 400, top: 0, bottom: 0 }}
+          bounds={{ left: -10, right: 10, top: -10, bottom: 10 }}
         >
           {/* box 4 */}
           <Box className="flex flex-col h-full">
             <Typography className="xxl:hidden pb-2" sx={{ fontWeight: "600" }}>
               New Task
             </Typography>
-            <Box
-              className="  rounded-3xl flex-1 px-6 py-4 w-full grid grid-cols-1 md:grid-cols-2 gap-3"
-              sx={{
-                // bgcolor: theme.palette.primary.main,
-                border: `1px solid ${theme.palette.primary.main}`,
-                color: theme.palette.text.black,
-              }}
-            >
-              {/* box 4 content  */}
-              <Box
-                className=" rounded-3xl px-6 py-4 flex items-center cursor-move"
-                id="child11"
-                sx={{
-                  bgcolor: theme.palette.primary.cardBg,
-                  color: theme.palette.text.white,
-                }}
-              >
-                <Typography>Request Processing</Typography>
-              </Box>
-              {/* box 4 content  */}
-              <Box
-                className=" rounded-3xl px-6 py-4 flex items-center"
-                sx={{ bgcolor: theme.palette.primary.main }}
-              >
-                <Typography>Problem Resolution</Typography>
-              </Box>
-              {/* box 4 content  */}
-              <Box
-                className=" rounded-3xl px-6 xl:px-4 2xl:px-6 py-4 flex items-center overflow-hidden"
-                sx={{ bgcolor: theme.palette.primary.main }}
-              >
-                <Typography sx={{ wordBreak: "break-word" }}>
-                  Customer Communication
-                </Typography>
-              </Box>
-              {/* box 4 content  */}
-              <Box
-                className=" rounded-3xl px-6 py-4 flex items-center"
-                sx={{ bgcolor: theme.palette.primary.main }}
-              >
-                <Typography>Testing and Verification</Typography>
-              </Box>
-              {/* box 4 content  */}
-              <Box
-                className=" rounded-3xl px-6 py-4 flex items-center"
-                sx={{ bgcolor: theme.palette.primary.main }}
-              >
-                <Typography>Customer Notification</Typography>
-              </Box>
-              {/* box 4 content  */}
-              <Box
-                className=" rounded-3xl px-6 py-4 flex items-center"
-                sx={{ bgcolor: theme.palette.primary.main }}
-              >
-                <Typography>Customer Satisfaction</Typography>
-              </Box>
-            </Box>
+           <Box className="flex-1" sx={{border: "1px solid red"}}>
+            <DndNewTaskCard></DndNewTaskCard>
+           </Box>
           </Box>
         </Draggable>
 
@@ -688,7 +635,7 @@ const DraggableParentWithFixedChildren = () => {
         <Xarrow
           start="elementOutside1"
           end="child2"
-          curveness={0.8}
+          curveness={0.6}
           color="#83A2DB"
           strokeWidth={1}
           headSize={6}
@@ -733,7 +680,7 @@ const DraggableParentWithFixedChildren = () => {
         <Xarrow
           start="elementOutside2"
           end="child4"
-          curveness={0.6}
+          curveness={0.5}
           color="#CE6969"
           strokeWidth={1}
           headSize={6}
@@ -758,6 +705,7 @@ const DraggableParentWithFixedChildren = () => {
           tailShape= {"circle"}
           headShape={"circle"}
         />
+        {/* second to third div connection */}
         <Xarrow
           start="child1"
           end="child8"

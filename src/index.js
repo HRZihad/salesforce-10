@@ -3,14 +3,16 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import { CssBaseline } from '@mui/material';
+import { Box, CssBaseline } from '@mui/material';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <React.StrictMode>
-    <CssBaseline />
-    <App />
-  </React.StrictMode>
+  
+   <Box>
+     <CssBaseline />
+     <App />
+   </Box>
+  
 );
 
 // If you want to start measuring performance in your app, pass a function

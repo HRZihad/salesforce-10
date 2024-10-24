@@ -1,4 +1,4 @@
-import { Box, IconButton, useTheme } from "@mui/material";
+import { Box, IconButton, Typography, useTheme } from "@mui/material";
 import KeyboardBackspaceIcon from "@mui/icons-material/KeyboardBackspace";
 import ShareIcon from "@mui/icons-material/Share";
 import DriveFolderUploadIcon from "@mui/icons-material/DriveFolderUpload";
@@ -18,30 +18,29 @@ const Sidebar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const theme = useTheme();
 
+  // Detect scroll event to toggle background color
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 0) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
+    };
 
-    // Detect scroll event to toggle background color
-    useEffect(() => {
-      const handleScroll = () => {
-        if (window.scrollY > 0) {
-          setIsScrolled(true);
-        } else {
-          setIsScrolled(false);
-        }
-      };
-  
-      window.addEventListener("scroll", handleScroll);
-      return () => {
-        window.removeEventListener("scroll", handleScroll);
-      };
-    }, []);
-
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+  const [isTrue, setIsTrue] = useState(false);
 
   return (
     <Box
       sx={{
         // mt:  isScrolled &&  "100px",
         position: "sticky",
-        top:  isScrolled &&  "78px", // Adjust this value to control how far from the top it should stick
+        top: isScrolled && "78px", // Adjust this value to control how far from the top it should stick
         zIndex: 30,
       }}
       className="flex flex-col justify-between items-center pb-10 pt-[15px] min-h-[90vh]"
@@ -50,7 +49,8 @@ const Sidebar = () => {
       <Box className=" flex flex-col items-center gap-y-3">
         {/* back arrow icon  */}
         <IconButton
-        size="large"
+          onClick={() => setIsTrue(!isTrue)}
+          size="large"
           sx={{
             // border: `1px solid ${theme.palette.primary.semiWhite}`,
             bgcolor: theme.palette.icon.lightIconBg,
@@ -60,21 +60,35 @@ const Sidebar = () => {
           <KeyboardBackspaceIcon />
         </IconButton>
         {/* share icon  */}
-        <IconButton
-        size="large"
-
-          sx={{
-            // border: `1px solid ${theme.palette.primary.semiWhite}`,
-            bgcolor: theme.palette.icon.lightIconBg,
-            borderRadius: "100%",
-          }}
-        >
-          <ShareIcon />
-        </IconButton>
+        <Box className="flex justify-center items-center gap-x-1 w-max-content">
+          <IconButton
+            size="large"
+            sx={{
+              // border: `1px solid ${theme.palette.primary.semiWhite}`,
+              bgcolor: theme.palette.icon.lightIconBg,
+              borderRadius: "100%",
+            }}
+          >
+            <ShareIcon />
+          </IconButton>
+          <Typography className={`${isTrue ? "hidden" : "block"}`}>Share</Typography>
+        </Box>
+        <Box className="flex justify-center items-center gap-x-1 w-max-content">
+          <IconButton
+            size="large"
+            sx={{
+              // border: `1px solid ${theme.palette.primary.semiWhite}`,
+              bgcolor: theme.palette.icon.lightIconBg,
+              borderRadius: "100%",
+            }}
+          >
+            <ShareIcon />
+          </IconButton>
+          <Typography className={`${isTrue ? "hidden" : "block"}`}>Share</Typography>
+        </Box>
         {/* upload icon  */}
         <IconButton
-        size="large"
-
+          size="large"
           sx={{
             // border: `1px solid ${theme.palette.primary.semiWhite}`,
             bgcolor: theme.palette.icon.lightIconBg,
@@ -85,7 +99,7 @@ const Sidebar = () => {
         </IconButton>
         {/* start icon  */}
         <IconButton
-        size="large"
+          size="large"
           sx={{
             // border: `1px solid ${theme.palette.primary.semiWhite}`,
             bgcolor: theme.palette.icon.lightIconBg,
@@ -96,7 +110,7 @@ const Sidebar = () => {
         </IconButton>
         {/* plus icon  */}
         <IconButton
-        size="large"
+          size="large"
           sx={{
             // border: `1px solid ${theme.palette.primary.semiWhite}`,
             bgcolor: theme.palette.icon.lightIconBg,
@@ -107,7 +121,7 @@ const Sidebar = () => {
         </IconButton>
         {/* mobile icon  */}
         <IconButton
-        size="large"
+          size="large"
           sx={{
             // border: `1px solid ${theme.palette.primary.semiWhite}`,
             bgcolor: theme.palette.icon.lightIconBg,
@@ -119,7 +133,7 @@ const Sidebar = () => {
 
         {/* storage icon  */}
         <IconButton
-        size="large"
+          size="large"
           sx={{
             // border: `1px solid ${theme.palette.primary.semiWhite}`,
             bgcolor: theme.palette.icon.lightIconBg,
@@ -131,7 +145,7 @@ const Sidebar = () => {
 
         {/* calender icon  */}
         <IconButton
-        size="large"
+          size="large"
           sx={{
             // border: `1px solid ${theme.palette.primary.semiWhite}`,
             bgcolor: theme.palette.icon.lightIconBg,
@@ -143,7 +157,7 @@ const Sidebar = () => {
 
         {/* TelegramIcon icon  */}
         <IconButton
-        size="large"
+          size="large"
           sx={{
             // border: `1px solid ${theme.palette.primary.semiWhite}`,
             bgcolor: theme.palette.icon.lightIconBg,
@@ -155,7 +169,7 @@ const Sidebar = () => {
 
         {/* Warning icon  */}
         <IconButton
-        size="large"
+          size="large"
           sx={{
             // border: `1px solid ${theme.palette.primary.semiWhite}`,
             bgcolor: theme.palette.icon.lightIconBg,
@@ -170,7 +184,7 @@ const Sidebar = () => {
       <Box className=" flex flex-col gap-y-2 ">
         {/* dark mode icon  */}
         <IconButton
-        size="large"
+          size="large"
           sx={{
             // border: `1px solid ${theme.palette.primary.semiWhite}`,
             bgcolor: theme.palette.icon.lightIconBg,
@@ -182,7 +196,7 @@ const Sidebar = () => {
 
         {/* light mode icon  */}
         <IconButton
-        size="large"
+          size="large"
           sx={{
             // border: `1px solid ${theme.palette.primary.semiWhite}`,
             bgcolor: theme.palette.icon.darkIconBg,

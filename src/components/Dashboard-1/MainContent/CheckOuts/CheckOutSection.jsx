@@ -4,6 +4,7 @@ import BezierCanvas from "../Cases/Canvas/BezierCanvas";
 import Layout1 from "components/Dashboard-1/Layout1";
 // import DraggableCards from "./DraggableCards";
 import MultiArrowFromTwoPoints from "./MultiArrowFromTwoPoints";
+import DndNewTaskCard from "./DndNewTaskCard";
 
 
 const CheckOutSection = () => {
@@ -17,6 +18,7 @@ const CheckOutSection = () => {
         </div> */}
         
         <h1>Multiple Bézier Curves</h1>
+        <DndNewTaskCard></DndNewTaskCard>
 
         {/* Multiple curves starting from the same point */}
         <CurveLine
